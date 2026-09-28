@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELORA — Contemporary Clothing</title>
+  <meta name="description" content="VELORA — refined essentials, contemporary silhouettes, and effortless everyday style.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:#f5f2ec;color:#171717;line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    .announcement{background:#171717;color:#fff;text-align:center;padding:9px;font-size:11px;letter-spacing:2px;text-transform:uppercase}
+    header{position:sticky;top:0;z-index:20;background:rgba(245,242,236,.94);backdrop-filter:blur(12px);border-bottom:1px solid #ded9d0}
+    nav{max-width:1280px;margin:auto;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+    .logo{font-size:25px;letter-spacing:7px;font-weight:700}
+    .navlinks{display:flex;gap:30px;font-size:12px;text-transform:uppercase;letter-spacing:1.5px}
+    .navlinks a:hover{opacity:.55}
+    .icons{display:flex;gap:18px;font-size:18px}
+    .hero{min-height:78vh;display:grid;grid-template-columns:1.05fr .95fr;background:#ddd5ca}
+    .hero-copy{display:flex;flex-direction:column;justify-content:center;padding:70px clamp(30px,7vw,100px)}
+    .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+    h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(58px,8vw,112px);line-height:.88;letter-spacing:-5px}
+    .hero-copy p{max-width:440px;margin:28px 0;color:#514d48;font-size:16px}
+    .btn{display:inline-block;background:#171717;color:#fff;padding:15px 25px;font-size:11px;letter-spacing:2px;text-transform:uppercase;width:max-content;border:1px solid #171717;transition:.25s}
+    .btn:hover{background:transparent;color:#171717}
+    .hero-image{min-height:600px;background:linear-gradient(135deg,#c8b9a8,#8c7869);position:relative;overflow:hidden}
+    .hero-image:after{content:"VELORA";position:absolute;inset:auto 0 40px;text-align:center;color:rgba(255,255,255,.35);font-size:clamp(50px,8vw,120px);font-weight:700;letter-spacing:15px}
+    .model{position:absolute;width:43%;height:78%;left:29%;bottom:0;background:linear-gradient(100deg,#24211e,#6f6257 45%,#25221f);border-radius:45% 45% 5% 5% / 25% 25% 5% 5%;filter:drop-shadow(15px 15px 20px rgba(0,0,0,.2))}
+    .model:before{content:"";position:absolute;width:43%;height:24%;left:28%;top:-10%;background:#9b765e;border-radius:50%}
+    section{max-width:1280px;margin:auto;padding:90px 28px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:35px}
+    .section-head h2{font-family:Georgia,serif;font-size:42px;font-weight:400}
+    .section-head span{font-size:11px;letter-spacing:2px;text-transform:uppercase}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:#e8e2d9}
+    .product-img{aspect-ratio:3/4;position:relative;display:flex;align-items:end;justify-content:center;overflow:hidden}
+    .p1{background:linear-gradient(140deg,#d7cec2,#aa9c8c)} .p2{background:linear-gradient(140deg,#d5d4d0,#8c8d89)}
+    .p3{background:linear-gradient(140deg,#d7c9bd,#9b7b68)} .p4{background:linear-gradient(140deg,#d1cec6,#77746d)}
+    .garment{width:55%;height:68%;background:#292725;border-radius:45% 45% 8% 8%;box-shadow:15px 20px 25px rgba(0,0,0,.12)}
+    .p2 .garment{background:#e7e2d9}.p3 .garment{background:#a76f55}.p4 .garment{background:#454843}
+    .tag{position:absolute;top:13px;left:13px;background:#fff;padding:7px 9px;font-size:9px;letter-spacing:1px}
+    .info{padding:16px 2px 22px}
+    .info h3{font-size:13px;font-weight:500}.info p{font-size:12px;color:#68635c;margin-top:5px}
+    .story{background:#1b1b1a;color:#f4f0e9;max-width:none;display:grid;grid-template-columns:1fr 1fr;padding:0}
+    .story-copy{padding:100px max(28px,7vw);display:flex;flex-direction:column;justify-content:center}
+    .story h2{font-family:Georgia,serif;font-size:clamp(42px,5vw,70px);font-weight:400;line-height:.95}
+    .story p{max-width:470px;color:#bdb7ae;margin:25px 0}
+    .story .btn{background:#f4f0e9;color:#171717;border-color:#f4f0e9}
+    .story-image{min-height:520px;background:radial-gradient(circle at 50% 35%,#a99887,#443b33 55%,#1b1b1a)}
+    .newsletter{text-align:center;max-width:700px}
+    .newsletter h2{font-family:Georgia,serif;font-size:48px;font-weight:400}
+    .newsletter p{color:#68635c;margin:14px auto 25px}
+    .form{display:flex;max-width:500px;margin:auto;border-bottom:1px solid #777}
+    .form input{flex:1;border:0;background:transparent;padding:14px 4px;outline:0}
+    .form button{border:0;background:none;padding:0 8px;text-transform:uppercase;letter-spacing:2px;font-size:10px}
+    footer{background:#171717;color:#fff;padding:55px 28px}
+    .footer-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:30px}
+    .footer-logo{font-size:23px;letter-spacing:6px}.footer-links{display:flex;gap:35px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px}
+    .copyright{margin-top:50px;color:#777;font-size:10px;letter-spacing:1px}
+    @media(max-width:800px){
+      .navlinks{display:none}.hero{grid-template-columns:1fr}.hero-image{min-height:480px}.products{grid-template-columns:repeat(2,1fr)}
+      .story{grid-template-columns:1fr}.story-image{min-height:350px}.footer-inner{flex-direction:column}.footer-links{flex-wrap:wrap}
+    }
+    @media(max-width:480px){nav{height:65px;padding:0 18px}.logo{font-size:20px}.hero-copy{padding:60px 24px}h1{font-size:65px}.products{gap:10px}.section-head h2{font-size:34px}}
+  </style>
+</head>
+<body>
+  <div class="announcement">Free shipping on orders over ₹2,999</div>
+  <header>
+    <nav>
+      <a class="logo" href="#">VELORA</a>
+      <div class="navlinks">
+        <a href="#new">New In</a><a href="#shop">Shop</a><a href="#story">Our Story</a>
+      </div>
+      <div class="icons"><span>⌕</span><span>♡</span><span>🛍</span></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Autumn / Winter 2026</div>
+        <h1>Quiet<br>Luxury.</h1>
+        <p>Modern essentials designed for people who prefer presence over noise. Clean lines, considered fabrics, effortless silhouettes.</p>
+        <a class="btn" href="#shop">Explore Collection</a>
+      </div>
+      <div class="hero-image"><div class="model"></div></div>
+    </section>
+
+    <section id="shop">
+      <div class="section-head"><h2>New arrivals</h2><span>View all →</span></div>
+      <div class="products">
+        <article class="card"><div class="product-img p1"><span class="tag">NEW</span><div class="garment"></div></div><div class="info"><h3>Essential Overshirt</h3><p>₹2,499</p></div></article>
+        <article class="card"><div class="product-img p2"><span class="tag">BESTSELLER</span><div class="garment"></div></div><div class="info"><h3>Cloud Knit Tee</h3><p>₹1,699</p></div></article>
+        <article class="card"><div class="product-img p3"><div class="garment"></div></div><div class="info"><h3>Relaxed Linen Shirt</h3><p>₹2,199</p></div></article>
+        <article class="card"><div class="product-img p4"><span class="tag">NEW</span><div class="garment"></div></div><div class="info"><h3>Everyday Utility Jacket</h3><p>₹3,499</p></div></article>
+      </div>
+    </section>
+
+    <section id="story" class="story">
+      <div class="story-copy">
+        <div class="eyebrow">The Velora philosophy</div>
+        <h2>Made to be<br>remembered.</h2>
+        <p>VELORA is built around timeless design rather than passing trends. Every piece is created to work together, wear easily, and become part of your everyday identity.</p>
+        <a class="btn" href="#newsletter">Discover Velora</a>
+      </div>
+      <div class="story-image"></div>
+    </section>
+
+    <section id="new" class="newsletter">
+      <div class="eyebrow">Stay in the know</div>
+      <h2>Enter your world of Velora.</h2>
+      <p>Sign up for new collections, private drops, and stories from the brand.</p>
+      <form class="form" onsubmit="event.preventDefault(); alert('Welcome to VELORA.');">
+        <input type="email" placeholder="Your email address" required><button>Join</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">VELORA</div>
+      <div class="footer-links"><a href="#">Instagram</a><a href="#">Contact</a><a href="#">Shipping</a><a href="#">Returns</a></div>
+    </div>
+    <div class="footer-inner copyright">© 2026 VELORA. All rights reserved.</div>
+  </footer>
+</body>
+</html>
